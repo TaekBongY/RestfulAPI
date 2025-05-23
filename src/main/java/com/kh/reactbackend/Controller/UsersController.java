@@ -21,7 +21,7 @@ public class UsersController {
     }
     //유저 추가
     @PostMapping
-    public ResponseEntity<String> addUser(@RequestBody UsersDto.Requset addUser) {
+    public ResponseEntity<String> addUser(@RequestBody UsersDto.Request addUser) {
         usersService.addUser(addUser);
         return ResponseEntity.ok("회원 등록 성공");
     }
@@ -41,8 +41,7 @@ public class UsersController {
     @PatchMapping("/{id}")
     public ResponseEntity<UsersDto.Response> updateUser(
             @PathVariable Long id,
-            @RequestBody UsersDto.UpdateUser updateDto) {
-        UsersDto.Response updateUser = usersService.updatePartUser(id, updateDto);
-        return ResponseEntity.ok(updateUser);
+            @RequestBody UsersDto.UpdateUser updateUser) {
+        return ResponseEntity.ok(usersService.updatePartUser(id, updateUser));
     }
 }

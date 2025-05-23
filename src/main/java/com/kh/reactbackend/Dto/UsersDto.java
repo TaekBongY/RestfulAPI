@@ -22,7 +22,7 @@ public class UsersDto {
     @NoArgsConstructor
     @AllArgsConstructor
     @Builder
-    public static class Requset{
+    public static class Request{
         private String name;
         private String email;
         private String password;

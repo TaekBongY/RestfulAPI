@@ -32,13 +32,14 @@ public class Users {
     @Column(name = "is_online")
     private Boolean isOnline;
 
+    @Builder.Default
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Cards> cards = new ArrayList<>();
 
-    public void setEmail(String email) {this.email = email;}
 
-    public void setAge(int age) {this.age = age;}
-
-    public void setIsOnline(Boolean isOnline) {this.isOnline = isOnline;}
-
+    public void updatePartUser(String email, Integer age, Boolean isOnline) {
+        if(email != null) {this.email = email;}
+        if(age != null) {this.age = age;}
+        if(isOnline != null) {this.isOnline = isOnline;}
+    }
 }

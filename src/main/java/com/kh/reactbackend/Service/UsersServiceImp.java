@@ -25,7 +25,7 @@ public class UsersServiceImp implements UsersService {
     }
     //유저 추가
     @Override
-    public void addUser(UsersDto.Requset addUser) {
+    public void addUser(UsersDto.Request addUser) {
         Users user = addUser.toUser();
         usersRepository.addUser(user);
     }
@@ -46,15 +46,13 @@ public class UsersServiceImp implements UsersService {
     @Override
     public UsersDto.Response updatePartUser(Long id, UsersDto.UpdateUser updateDto) {
         Users user = usersRepository.findById(id);
-        if(updateDto.getEmail() != null) {
-            user.setEmail(updateDto.getEmail());
-        }
-        if(updateDto.getAge() != null) {
-            user.setAge(updateDto.getAge());
-        }
-        if(updateDto.getIsOnline() != null) {
-            user.setIsOnline(updateDto.getIsOnline());
-        }
+
+        user.updatePartUser(
+                updateDto.getEmail(),
+                updateDto.getAge(),
+                updateDto.getIsOnline()
+        );
+
         usersRepository.saveUpdate(user);
 
         return UsersDto.Response.fromUser(user);

@@ -7,7 +7,7 @@ import java.util.List;
 public interface UsersService {
     List<UsersDto.Response> findAllM();
 
-    void addUser(UsersDto.Requset addUser);
+    void addUser(UsersDto.Request addUser);
 
     UsersDto.Response findById(Long id);
 
