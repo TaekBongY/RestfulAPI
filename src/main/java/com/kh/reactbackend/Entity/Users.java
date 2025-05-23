@@ -35,4 +35,10 @@ public class Users {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Cards> cards = new ArrayList<>();
 
+    public void setEmail(String email) {this.email = email;}
+
+    public void setAge(int age) {this.age = age;}
+
+    public void setIsOnline(Boolean isOnline) {this.isOnline = isOnline;}
+
 }

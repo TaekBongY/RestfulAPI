@@ -47,7 +47,6 @@ public class UsersDto {
     @Builder
     public static class Response{
         private Long id;
-        private String username;
         private String email;
         private String name;
         private int age;
@@ -64,6 +63,16 @@ public class UsersDto {
         }
 
 
+    }
+
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @Builder
+    public static class UpdateUser{
+        private String email;
+        private Integer age;
+        private Boolean isOnline;
     }
 }
 
